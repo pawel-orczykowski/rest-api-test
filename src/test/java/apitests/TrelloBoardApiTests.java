@@ -20,8 +20,8 @@ public class TrelloBoardApiTests {
 
     public RequestSpecification getCommonSpec() {
         RequestSpecBuilder builder = new RequestSpecBuilder();
-        builder.addQueryParam("key", "72e6c4a3d53d875b4a2bc72bbcdf2519");
-        builder.addQueryParam("token", "0d36422adb860c92661ef6dc7865a238e9fc5678cb1d1f33ff1eb409e6d7b06c");
+        builder.addQueryParam("key", "");
+        builder.addQueryParam("token", "");
         builder.setContentType(ContentType.JSON);
         return builder.build();
     }
