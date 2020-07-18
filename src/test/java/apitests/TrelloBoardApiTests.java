@@ -28,7 +28,9 @@ public class TrelloBoardApiTests {
         try {
             loadPropFile.load(new FileInputStream("src/test/resources/config.properties"));
             map.put("key", loadPropFile.getProperty("key"));
+            System.out.println(map.get("key")+"<<<<<<<<<<====================");
             map.put("token", loadPropFile.getProperty("token"));
+            System.out.println(map.get("token")+"<<<<<<<<<<====================");
         } catch (IOException e) {
             e.printStackTrace();
         }
