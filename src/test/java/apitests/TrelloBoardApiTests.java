@@ -24,9 +24,7 @@ public class TrelloBoardApiTests {
         RequestSpecBuilder builder = new RequestSpecBuilder();
 
         builder.addQueryParam("key", config.getKey());
-        System.out.println(config.getKey());
         builder.addQueryParam("token", config.getToken());
-        System.out.println(config.getToken());
         builder.setContentType(ContentType.JSON);
         return builder.build();
     }

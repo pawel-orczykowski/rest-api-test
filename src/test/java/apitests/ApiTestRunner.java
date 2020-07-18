@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources",
+        plugin = {"pretty", "html:target/CucumberReport", "json:target/CucumberReport.json"},
         glue = "apitests",
         strict = true,
-        monochrome = true,
-        plugin = {"pretty", "html:target/cucumber"}
+        monochrome = true
 )
 
 public class ApiTestRunner {}
