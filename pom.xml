@@ -16,16 +16,21 @@
     <build>
     <plugins>
         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
-            <dependencies>
-                <dependency>
-                    <groupId>org.apache.maven.surefire</groupId>
-                    <artifactId>surefire-junit47</artifactId>
-                    <version>3.0.0-M5</version>
-                </dependency>
-            </dependencies>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>2.21.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>integration-test</goal>
+                        <goal>verify</goal>
+                    </goals>
+                    <configuration>
+                        <includes>
+                            <include>ApiTestRunner.java</include>
+                        </includes>
+                    </configuration>
+                </execution>
+            </executions>
         </plugin>
     </plugins>
     </build>
@@ -40,27 +45,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
-        </dependency>
-
-        <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>6.2.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.java-json-tools</groupId>
-            <artifactId>json-schema-validator</artifactId>
-            <version>2.2.14</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -73,7 +61,8 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>5.7.0</version>
+            <version>6.2.2</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

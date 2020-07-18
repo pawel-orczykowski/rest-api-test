@@ -9,7 +9,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources",
         glue = "apitests",
         strict = true,
-        monochrome = true
+        monochrome = true,
+        plugin = {"pretty", "html:target/cucumber"}
 )
 
 public class ApiTestRunner {}
