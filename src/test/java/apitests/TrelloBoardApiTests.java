@@ -7,13 +7,7 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Properties;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -21,30 +15,18 @@ import static io.restassured.RestAssured.given;
 
 public class TrelloBoardApiTests {
 
-
-    String getCredentials (String propName) {
-        Properties loadPropFile = new Properties();
-        Map<String,String> map = new HashMap<>();
-        try {
-            loadPropFile.load(new FileInputStream("src/test/resources/config.properties"));
-            map.put("key", loadPropFile.getProperty("key"));
-            System.out.println(map.get("key")+"<<<<<<<<<<====================");
-            map.put("token", loadPropFile.getProperty("token"));
-            System.out.println(map.get("token")+"<<<<<<<<<<====================");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return map.get(propName);
-    }
-
     public TrelloBoardApiTests() {
         setUp();
     }
 
     public RequestSpecification getCommonSpec() {
+        Config config = new Config();
         RequestSpecBuilder builder = new RequestSpecBuilder();
-        builder.addQueryParam("key", getCredentials("key"));
-        builder.addQueryParam("token", getCredentials("token"));
+
+        builder.addQueryParam("key", config.getKey());
+        System.out.println(config.getKey());
+        builder.addQueryParam("token", config.getToken());
+        System.out.println(config.getToken());
         builder.setContentType(ContentType.JSON);
         return builder.build();
     }
