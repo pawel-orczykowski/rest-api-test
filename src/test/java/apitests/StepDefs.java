@@ -35,9 +35,9 @@ public class StepDefs {
         labelCreateResponse = trelloBoardApiTests.addCardToListApiTest(labelId, listId, cardName, message);
     }
 
-    @Then("Add Card to the list response is {string}")
-    public void assertAddCardRespons(String responseCode){
-        trelloBoardApiTests.assertResponseCode(labelCreateResponse, 200);
+    @Then("Add Card to the list response is {int}")
+    public void assertAddCardRespons(int responseCode){
+        trelloBoardApiTests.assertResponseCode(labelCreateResponse, responseCode);
     }
 
     @Then("Add Card to list response body is correct")
